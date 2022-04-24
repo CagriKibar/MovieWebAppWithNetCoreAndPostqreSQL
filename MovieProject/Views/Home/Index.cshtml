@@ -1,0 +1,11 @@
+﻿@using MovieProject.Models
+@model CategoryMenu
+
+<div class="row">
+    <div class="col-md-3">
+        @Html.Partial("_menu", Model.Categories)
+    </div>
+     <div class="col-md-9">
+        @Html.Partial("_movies", Model.Movies)
+    </div>
+</div>
