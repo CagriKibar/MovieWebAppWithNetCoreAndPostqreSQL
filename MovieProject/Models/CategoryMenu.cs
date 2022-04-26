@@ -5,7 +5,7 @@ namespace MovieProject.Models
     public class CategoryMenu
     {
         public Movie Movie { get; set; }
-        public IEnumerable<Movie> Movies { get; set; }
-        public IEnumerable<Category> Categories { get; set; }
+        public List<Movie> Movies { get; set; }
+        public List<Category> Categories { get; set; }
     }
 }

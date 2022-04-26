@@ -16,8 +16,6 @@
     }  
 </style>  
   
-<h2></h2>  
-  
 <div asp-validation-summary="ModelOnly" class="text-danger"></div>  
 <form class="m-1 p-1" method="post">  
     <div class="form-group">  
@@ -39,8 +37,14 @@
         <label asp-for="VideoUrl"></label>  
         <input asp-for="VideoUrl" type="text" class="form-control" />  
         <span asp-validation-for="VideoUrl" class="text-danger"></span>  
-    </div>  
-    <button type="submit" class="btn btn-primary">Submit</button>  
+    </div> 
+    <div class="form-group">  
+        <label asp-for="CategoryId"></label>  
+        <input asp-for="CategoryId" type="text" class="form-control" />  
+        <span asp-validation-for="CategoryId" class="text-danger"></span>  
+    </div> 
+    
+    <button type="submit" class="btn btn-primary">Add</button>  
 </form>  
   
 <script src="/lib/jquery/dist/jquery.min.js"></script>  

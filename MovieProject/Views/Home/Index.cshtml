@@ -1,11 +1,12 @@
 ﻿@using MovieProject.Models
-@model CategoryMenu
+@model IEnumerable<Movie>
 
 <div class="row">
     <div class="col-md-3">
-        @Html.Partial("_menu", Model.Categories)
+      @await Component.InvokeAsync("CategoryMenu")
+     
     </div>
      <div class="col-md-9">
-        @Html.Partial("_movies", Model.Movies)
+        @Html.Partial("_movies",Model)
     </div>
 </div>

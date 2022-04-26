@@ -9,22 +9,18 @@
 </head>
 <body>
     <header>
-        <partial name="_navbar" />
+        @Html.Partial("_navbar")
     </header>
    <main>
-       <div class="container mt-3">
+       <div class="container mt-4">
            @RenderBody()
            </div>
    </main>
-    
     <footer>
-        <partial name="_footer"/>
+       @Html.Partial("_footer")
     </footer>
   
-  <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
+  
 </body>
  
 </html>

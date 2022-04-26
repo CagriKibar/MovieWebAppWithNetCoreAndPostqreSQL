@@ -16,21 +16,23 @@ namespace MovieProject.Controllers
         {
             _movieContext = movieContext;
         }
-        public IActionResult Index()
+        public IActionResult Index(int? id)
         {
-                CategoryMenu model= new CategoryMenu();
-                model.Categories = _movieContext.Categories.ToList();
-                model.Movies=_movieContext.Movies.ToList();
-            return View(model);
+            var movies = _movieContext.Movies.ToList();
+            if (id != null)
+            {
+                movies = movies.Where(i => i.CategoryId == id).ToList();
+            }
+
+           
+            return View(movies);
         }
         
         public IActionResult Details(int id)
         {
-            CategoryMenu model = new CategoryMenu();
-            model.Categories = new List<Category>();
-            model.Movie = _movieContext.Movies.Where(p => p.MovieId == id).FirstOrDefault();
+            
 
-            return View(model);
+            return View(_movieContext.Movies.Where(p => p.MovieId == id).FirstOrDefault());
         }
 
     }
