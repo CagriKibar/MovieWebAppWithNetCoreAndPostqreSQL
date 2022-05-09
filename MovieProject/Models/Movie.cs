@@ -1,4 +1,7 @@
-﻿namespace MovieProject.Models
+﻿using System;
+using System.Collections.Generic;
+
+namespace MovieProject.Models
 {
     public class Movie
     {
@@ -7,7 +10,10 @@
         public string Description { get; set; }
         public string ImageUrl { get; set; }
         public string VideoUrl { get; set; }
+       
         public int CategoryId { get; set; }
+        public Category Category { get; set; }
         
+
     }
 }

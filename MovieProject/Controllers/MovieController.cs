@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MovieProject.Models;
 using System.Collections.Generic;
@@ -21,13 +22,25 @@ namespace MovieProject.Controllers
             
             return View(_movieContext.Movies.ToList());
         }
+        
+
+        [HttpGet]
         public IActionResult AddMovie()
         {
+            List<SelectListItem> values = (from x in _movieContext.Categories.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.CategoryName,
+                                               Value = x.CategoryId.ToString()
+                                           }).ToList();
+            ViewBag.v1 = values;
             return View();
         }
+
         [HttpPost]
         public IActionResult AddMovie(Movie movie)
         {
+           
             if (ModelState.IsValid)
             {
                 _movieContext.Add(movie);
@@ -39,6 +52,7 @@ namespace MovieProject.Controllers
                 return View();
             }
         }
+        
 
 
        public IActionResult DeleteMovie(int id)
